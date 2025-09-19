@@ -6,9 +6,9 @@ enum class Color{
 
 data class Position(val row: Int, val col: Int)
 
-abstract class Piece(color: Color) {
-    var color = color
-    var possibleMoves: List<Position> = emptyList()
+abstract class Piece(var color: Color) {
+    var possibleMoves: MutableList<Position> = mutableListOf()
     open fun movesDiagonal() = false
     open fun movesStraight() = false
+    var isProtected = false
 }
